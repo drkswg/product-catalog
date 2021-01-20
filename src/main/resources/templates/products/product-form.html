@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сохранить позицию</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h3>Параметры позиции</h3>
+        <hr>
+        <p class="h4 mb-4">Сохранить позицию</p>
+        <form action="#" th:action="@{/products/save}"
+              th:object="${product}" method="post">
+
+            <input type="hidden" th:field="*{id}"/>
+
+            <input type="text" th:field="*{name}"
+                   class="form-control mb-4 col-4"
+                   placeholder="Название">
+
+            <select th:field="*{type}"
+                   class="form-control mb-4 col-4">
+                <option th:value="'Колбаса'" th:text="Колбаса"></option>
+                <option th:value="'Сыр'" th:text="Сыр"></option>
+                <option th:value="'Овощи'" th:text="Овощи"></option>
+                <option th:value="'Соус'" th:text="Соус"></option>
+                <option th:value="'Хлеб'" th:text="Хлеб"></option>
+                <option th:value="'Сок'" th:text="Сок"></option>
+                <option th:value="'Молочка'" th:text="Молочка"></option>
+                <option th:value="'Специи'" th:text="Специи"></option>
+            </select>
+
+            <input type="text" th:field="*{description}"
+                   class="form-control mb-4 col-4"
+                   placeholder="Описание">
+
+            <input type="number" th:field="*{price}"
+                   class="form-control mb-4 col-4"
+                   placeholder="Цена">
+
+            <button type="submit" class="btn btn-info col-2">Сохранить</button>
+        </form>
+        <hr>
+        <a th:href="@{/products/list}">Вернуться к каталогу продуктов</a>
+    </div>
+</body>
+</html>
